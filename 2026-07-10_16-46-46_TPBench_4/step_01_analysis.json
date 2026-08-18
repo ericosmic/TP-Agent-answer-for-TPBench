@@ -1,0 +1,20 @@
+{
+  "step": 1,
+  "description": "Identify the parabolic periapsis condition: before the burn the probe has zero specific orbital energy, so at periapsis $\\frac{1}{2}v_e^2-\\frac{GM}{r_p}=0$, implying $\\frac{GM}{r_p}=\\frac{1}{2}v_e^2$.",
+  "reasoning": "For a Keplerian orbit in a Newtonian gravitational potential, the specific orbital energy is $\\epsilon = \\frac{1}{2}v^2 - GM/r$. A parabolic trajectory is the marginally bound case, so $\\epsilon=0$. Evaluating this at periapsis, where the pre-burn speed is $v_e$ and the distance from the planet is $r_p$, gives $\\frac{1}{2}v_e^2 - GM/r_p=0$. Rearranging yields $GM/r_p=\\frac{1}{2}v_e^2$. This establishes the key relation needed to eliminate $GM/r_p$ later when computing the post-burn hyperbolic excess speed.",
+  "code": "",
+  "result": "Before the burn, the probe is on a parabolic orbit, so its specific orbital energy is zero:\n\n$$\n\\epsilon = \\frac{1}{2}v_e^2 - \\frac{GM}{r_p}=0.\n$$\n\nTherefore, at periapsis,\n\n$$\n\\frac{GM}{r_p}=\\frac{1}{2}v_e^2.\n$$\n\nEquivalently, the periapsis speed $v_e$ is the local escape speed at radius $r_p$:\n\n$$\nv_e = \\sqrt{\\frac{2GM}{r_p}}.\n$$",
+  "analysis": "{\"result\": \"Before the burn, the probe is on a parabolic orbit, so its specific orbital energy is zero:\\n\\n$$\\n\\\\epsilon = \\\\frac{1}{2}v_e^2 - \\\\frac{GM}{r_p}=0.\\n$$\\n\\nTherefore, at periapsis,\\n\\n$$\\n\\\\frac{GM}{r_p}=\\\\frac{1}{2}v_e^2.\\n$$\\n\\nEquivalently, the periapsis speed $v_e$ is the local escape speed at radius $r_p$:\\n\\n$$\\nv_e = \\\\sqrt{\\\\frac{2GM}{r_p}}.\\n$$\", \"physical_interpretation\": \"Before the burn, the probe is on a parabolic orbit, so its specific orbital energy is zero:\\n\\n$$\\n\\\\epsilon = \\\\frac{1}{2}v_e^2 - \\\\frac{GM}{r_p}=0.\\n$$\\n\\nTherefore, at periapsis,\\n\\n$$\\n\\\\frac{GM}{r_p}=\\\\frac{1}{2}v_e^2.\\n$$\\n\\nEquivalently, the periapsis speed $v_e$ is the local escape speed at radius $r_p$:\\n\\n$$\\nv_e = \\\\sqrt{\\\\frac{2GM}{r_p}}.\\n$$\", \"consistency_check\": \"passed\", \"potential_issues\": \"\", \"step_complete\": true}",
+  "reflect": "",
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "dispute_reflect=False, dispute_reasoning=None"
+    },
+    {
+      "role": "system",
+      "content": "[Committed Step 1]"
+    }
+  ],
+  "compute_tool": "none"
+}

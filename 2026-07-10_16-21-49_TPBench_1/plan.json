@@ -1,0 +1,44 @@
+{
+  "steps": [
+    {
+      "description": "Identify the structure of $H=\\begin{pmatrix}E_a&0&A\\\\0&E_b&0\\\\A&0&E_a\\end{pmatrix}$: the second basis state is already an eigenstate with energy $E_b$, while the first and third basis states form a coupled $2\\times2$ block.",
+      "needs_computation": false,
+      "reasoning": "This follows directly by inspection of the matrix; no symbolic computation is needed."
+    },
+    {
+      "description": "Use energy conservation for a time-independent Hamiltonian: since $H$ has no explicit time dependence, $\\langle H\\rangle_t=\\langle\\psi(t)|H|\\psi(t)\\rangle=\\langle\\psi(0)|H|\\psi(0)\\rangle$.",
+      "needs_computation": false,
+      "reasoning": "This is a standard theorem from Schrödinger evolution under a time-independent Hamiltonian, avoiding unnecessary diagonalization."
+    },
+    {
+      "description": "Evaluate $\\langle\\psi(0)|H|\\psi(0)\\rangle$ using $\\psi(0)=\\frac{1}{\\sqrt{2}}\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}$, noting that the $A$ coupling connects components $1$ and $3$, but the initial third component is zero.",
+      "needs_computation": false,
+      "reasoning": "The matrix-vector multiplication is elementary by hand: only the $E_a$ contribution from component $1$ and the $E_b$ contribution from component $2$ survive."
+    },
+    {
+      "description": "State the final time-independent result: $\\langle H\\rangle_t=\\frac{E_a+E_b}{2}$.",
+      "needs_computation": false,
+      "reasoning": "The result follows immediately from the initial expectation value and conservation of energy."
+    }
+  ],
+  "tools_needed": [],
+  "expected_output": "A concise derivation showing that the expectation value of the energy is independent of $t$ and equals $\\langle H\\rangle_t=\\frac{E_a+E_b}{2}$.",
+  "references": [
+    "Time-independent Schrödinger equation",
+    "Conservation of energy expectation value for time-independent Hamiltonians",
+    "Expectation value formula $\\langle H\\rangle=\\langle\\psi|H|\\psi\\rangle$",
+    "Three-level quantum systems"
+  ],
+  "symmetry_constraints": [
+    "Hermiticity of $H$ requires $A$ real, consistent with the problem statement.",
+    "The Hamiltonian is time independent, so energy expectation is conserved."
+  ],
+  "approximation_limits": [
+    "No approximation is required.",
+    "The result is exact for all times $t$."
+  ],
+  "else_constraints": [
+    "The initial state $\\psi(0)=\\frac{1}{\\sqrt{2}}\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}$ is normalized.",
+    "Although population can oscillate between the first and third basis states due to $A$, the total energy expectation remains constant."
+  ]
+}

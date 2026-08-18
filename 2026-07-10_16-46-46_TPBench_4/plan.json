@@ -1,0 +1,47 @@
+{
+  "steps": [
+    {
+      "description": "Identify the parabolic periapsis condition: before the burn the probe has zero specific orbital energy, so at periapsis $\\frac{1}{2}v_e^2-\\frac{GM}{r_p}=0$, implying $\\frac{GM}{r_p}=\\frac{1}{2}v_e^2$.",
+      "needs_computation": false,
+      "reasoning": "This follows directly from conservation of mechanical energy for a parabolic orbit; no symbolic computation is needed."
+    },
+    {
+      "description": "Model the impulsive rocket burn at periapsis as an instantaneous tangential velocity change from $v_e$ to $v_e+\\delta v$, while the radius remains $r_p$.",
+      "needs_computation": false,
+      "reasoning": "The problem states a very brief firing at periapsis; the standard impulse approximation is a conceptual step."
+    },
+    {
+      "description": "Compute the post-burn specific energy using $\\epsilon=\\frac{1}{2}(v_e+\\delta v)^2-\\frac{GM}{r_p}$ and substitute $\\frac{GM}{r_p}=\\frac{1}{2}v_e^2$ to obtain $\\epsilon=v_e\\delta v+\\frac{1}{2}(\\delta v)^2$.",
+      "needs_computation": false,
+      "reasoning": "The algebra is simple enough to do by hand."
+    },
+    {
+      "description": "Relate the positive post-burn energy to the asymptotic escape speed $v_\\infty$ via $\\epsilon=\\frac{1}{2}v_\\infty^2$, yielding $v_\\infty=\\sqrt{2v_e\\delta v+(\\delta v)^2}$.",
+      "needs_computation": false,
+      "reasoning": "This is a direct application of energy conservation at infinity where gravitational potential vanishes."
+    }
+  ],
+  "tools_needed": [],
+  "expected_output": "A compact derivation and final expression for the speed at infinity: $v_\\infty=\\sqrt{2v_e\\delta v+(\\delta v)^2}$, assuming the burn is prograde and impulsive at periapsis.",
+  "references": [
+    "Specific orbital energy in Newtonian gravity",
+    "Parabolic orbit condition $\\epsilon=0$",
+    "Impulsive burn approximation",
+    "Escape speed and asymptotic hyperbolic excess speed"
+  ],
+  "symmetry_constraints": [
+    "Central gravitational field of the planet",
+    "Conservation of mechanical energy before and after the instantaneous burn, excluding the impulse itself",
+    "Spherical symmetry of the potential $-GM/r$"
+  ],
+  "approximation_limits": [
+    "The rocket firing is instantaneous compared with orbital timescales",
+    "The boost $\\delta v$ is applied prograde along the periapsis velocity",
+    "Planetary atmosphere, rotation, tidal effects, and other bodies are neglected",
+    "Newtonian gravity is assumed"
+  ],
+  "else_constraints": [
+    "Final answer must be expressed only in terms of $v_e$ and $\\delta v$",
+    "The periapsis radius $r_p$ and planet mass $M$ should cancel out using the parabolic condition"
+  ]
+}

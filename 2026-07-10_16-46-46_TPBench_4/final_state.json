@@ -1,0 +1,101 @@
+{
+  "query": "Topic:\nBoosted Parabolic Trajectory\n\nProblem:\nConsider a situation where a space-probe very briefly fires its rockets while passing a planet of mass \\(M\\) at periapsis, its nearest point to the planet. Suppose that the probe is on a parabolic trajectory and at periapsis, when travelling at velocity $v_e$, it results in a boost of $\\delta v$. What will be its speed once it escapes the planet's gravitational field only in terms of $v_e$ and $\\delta v$?\n\nDomain:\nClassical Mechanics",
+  "current_time_context": {
+    "timezone": "Asia/Shanghai",
+    "local_iso": "2026-07-10T16:46:46+08:00",
+    "utc_iso": "2026-07-10T08:46:46+00:00",
+    "date": "2026-07-10",
+    "weekday": "Friday",
+    "time": "16:46:46",
+    "utc_offset": "+0800"
+  },
+  "benchmark_id": "TPBench.csv",
+  "row_number": 4,
+  "master_action": "",
+  "direct_answer_text": "",
+  "refuse_reason": "",
+  "file_path": "",
+  "file_content": "",
+  "needs_plan": false,
+  "use_tavily": false,
+  "use_openalex": false,
+  "use_arxiv": false,
+  "use_kg": false,
+  "kg_queries": [],
+  "paper_queries": [],
+  "tavily_answer": "",
+  "kg_results": "",
+  "kg_subgraph": "",
+  "paper_results": "",
+  "file_rag_context": "",
+  "file_rag_indexed_files": [],
+  "master_plan": "",
+  "master_plan_step": 0,
+  "master_plan_review_status": "",
+  "master_plan_result": "",
+  "master_loop_status": "",
+  "master_loop_count": 0,
+  "max_master_loop_steps": 6,
+  "master_tool_history": [],
+  "plan": "{\n  \"steps\": [\n    {\n      \"description\": \"Identify the parabolic periapsis condition: before the burn the probe has zero specific orbital energy, so at periapsis $\\\\frac{1}{2}v_e^2-\\\\frac{GM}{r_p}=0$, implying $\\\\frac{GM}{r_p}=\\\\frac{1}{2}v_e^2$.\",\n      \"needs_computation\": false,\n      \"reasoning\": \"This follows directly from conservation of mechanical energy for a parabolic orbit; no symbolic computation is needed.\"\n    },\n    {\n      \"description\": \"Model the impulsive rocket burn at periapsis as an instantaneous tangential velocity change from $v_e$ to $v_e+\\\\delta v$, while the radius remains $r_p$.\",\n      \"needs_computation\": false,\n      \"reasoning\": \"The problem states a very brief firing at periapsis; the standard impulse approximation is a conceptual step.\"\n    },\n    {\n      \"description\": \"Compute the post-burn specific energy using $\\\\epsilon=\\\\frac{1}{2}(v_e+\\\\delta v)^2-\\\\frac{GM}{r_p}$ and substitute $\\\\frac{GM}{r_p}=\\\\frac{1}{2}v_e^2$ to obtain $\\\\epsilon=v_e\\\\delta v+\\\\frac{1}{2}(\\\\delta v)^2$.\",\n      \"needs_computation\": false,\n      \"reasoning\": \"The algebra is simple enough to do by hand.\"\n    },\n    {\n      \"description\": \"Relate the positive post-burn energy to the asymptotic escape speed $v_\\\\infty$ via $\\\\epsilon=\\\\frac{1}{2}v_\\\\infty^2$, yielding $v_\\\\infty=\\\\sqrt{2v_e\\\\delta v+(\\\\delta v)^2}$.\",\n      \"needs_computation\": false,\n      \"reasoning\": \"This is a direct application of energy conservation at infinity where gravitational potential vanishes.\"\n    }\n  ],\n  \"tools_needed\": [],\n  \"expected_output\": \"A compact derivation and final expression for the speed at infinity: $v_\\\\infty=\\\\sqrt{2v_e\\\\delta v+(\\\\delta v)^2}$, assuming the burn is prograde and impulsive at periapsis.\",\n  \"references\": [\n    \"Specific orbital energy in Newtonian gravity\",\n    \"Parabolic orbit condition $\\\\epsilon=0$\",\n    \"Impulsive burn approximation\",\n    \"Escape speed and asymptotic hyperbolic excess speed\"\n  ],\n  \"symmetry_constraints\": [\n    \"Central gravitational field of the planet\",\n    \"Conservation of mechanical energy before and after the instantaneous burn, excluding the impulse itself\",\n    \"Spherical symmetry of the potential $-GM/r$\"\n  ],\n  \"approximation_limits\": [\n    \"The rocket firing is instantaneous compared with orbital timescales\",\n    \"The boost $\\\\delta v$ is applied prograde along the periapsis velocity\",\n    \"Planetary atmosphere, rotation, tidal effects, and other bodies are neglected\",\n    \"Newtonian gravity is assumed\"\n  ],\n  \"else_constraints\": [\n    \"Final answer must be expressed only in terms of $v_e$ and $\\\\delta v$\",\n    \"The periapsis radius $r_p$ and planet mass $M$ should cancel out using the parabolic condition\"\n  ]\n}",
+  "plan_steps": [
+    "Identify the parabolic periapsis condition: before the burn the probe has zero specific orbital energy, so at periapsis $\\frac{1}{2}v_e^2-\\frac{GM}{r_p}=0$, implying $\\frac{GM}{r_p}=\\frac{1}{2}v_e^2$.",
+    "Model the impulsive rocket burn at periapsis as an instantaneous tangential velocity change from $v_e$ to $v_e+\\delta v$, while the radius remains $r_p$.",
+    "Compute the post-burn specific energy using $\\epsilon=\\frac{1}{2}(v_e+\\delta v)^2-\\frac{GM}{r_p}$ and substitute $\\frac{GM}{r_p}=\\frac{1}{2}v_e^2$ to obtain $\\epsilon=v_e\\delta v+\\frac{1}{2}(\\delta v)^2$.",
+    "Relate the positive post-burn energy to the asymptotic escape speed $v_\\infty$ via $\\epsilon=\\frac{1}{2}v_\\infty^2$, yielding $v_\\infty=\\sqrt{2v_e\\delta v+(\\delta v)^2}$."
+  ],
+  "plan_step_classifications": [
+    {
+      "needs_computation": false,
+      "reasoning": "This follows directly from conservation of mechanical energy for a parabolic orbit; no symbolic computation is needed."
+    },
+    {
+      "needs_computation": false,
+      "reasoning": "The problem states a very brief firing at periapsis; the standard impulse approximation is a conceptual step."
+    },
+    {
+      "needs_computation": false,
+      "reasoning": "The algebra is simple enough to do by hand."
+    },
+    {
+      "needs_computation": false,
+      "reasoning": "This is a direct application of energy conservation at infinity where gravitational potential vanishes."
+    }
+  ],
+  "current_step": 4,
+  "compute_code": "",
+  "compute_tool": "none",
+  "compute_reasoning": "",
+  "compute_results": "",
+  "critical_rubrics": "The result must explicitly connect the conserved positive post-burn specific energy to the kinetic energy at infinity, $\\epsilon=\\frac{1}{2}v_\\infty^2$, where the gravitational potential vanishes. It must substitute $\\epsilon=v_e\\delta v+\\frac{1}{2}(\\delta v)^2$ and solve for the positive speed root, giving $v_\\infty=\\sqrt{2v_e\\delta v+(\\delta v)^2}$. The final expression should depend only on $v_e$ and $\\delta v$.",
+  "reflect_feedback": "",
+  "compute_iteration": 0,
+  "max_iterations": 3,
+  "analyse_iteration": 0,
+  "notebook": "# Physics Problem Notebook\n\n: Topic:\nBoosted Parabolic Trajectory\n\nProblem:\nConsider a situation where a space-probe very briefly fires its rockets while passing a planet of mass \\(M\\) at periapsis, its nearest point to the planet. Suppose that the probe is on a parabolic trajectory and at periapsis, when travelling at velocity $v_e$, it results in a boost of $\\delta v$. What will be its speed once it escapes the planet's gravitational field only in terms of $v_e$ and $\\delta v$?\n\nDomain:\nClassical Mechanics\n\n\n## Step 1: Identify the parabolic periapsis condition: before the burn the probe has zero specific orbital energy, so at periapsis $\\frac{1}{2}v_e^2-\\frac{GM}{r_p}=0$, implying $\\frac{GM}{r_p}=\\frac{1}{2}v_e^2$.\n\n**Result:** Before the burn, the probe is on a parabolic orbit, so its specific orbital energy is zero:\n\n$$\n\\epsilon = \\frac{1}{2}v_e^2 - \\frac{GM}{r_p}=0.\n$$\n\nTherefore, at periapsis,\n\n$$\n\\frac{GM}{r_p}=\\frac{1}{2}v_e^2.\n$$\n\nEquivalently, the periapsis speed $v_e$ is the local escape speed at radius $r_p$:\n\n$$\nv_e = \\sqrt{\\frac{2GM}{r_p}}.\n$$\n\n\n## Step 2: Model the impulsive rocket burn at periapsis as an instantaneous tangential velocity change from $v_e$ to $v_e+\\delta v$, while the radius remains $r_p$.\n\n**Result:** Because the burn is very brief, it may be modeled as an impulse applied at fixed radius $r_p$. Since the boost is tangential and in the direction of motion, the post-burn periapsis speed is simply\n\n$$\nv_p^+ = v_e + \\delta v.\n$$\n\nThe radius during the burn remains\n\n$$\nr^+ = r_p.\n$$\n\nThus, immediately after the burn, the probe is at periapsis radius $r_p$ with velocity magnitude $v_e+\\delta v$. Its post-burn specific mechanical energy is therefore set up as\n\n$$\n\\epsilon^+ = \\frac{1}{2}(v_e+\\delta v)^2 - \\frac{GM}{r_p}.\n$$\n\nUsing the parabolic condition from Step 1, $GM/r_p = \\frac{1}{2}v_e^2$, this can later be written entirely in terms of $v_e$ and $\\delta v$ as\n\n$$\n\\epsilon^+ = \\frac{1}{2}(v_e+\\delta v)^2 - \\frac{1}{2}v_e^2.\n$$\n\n\n## Step 3: Compute the post-burn specific energy using $\\epsilon=\\frac{1}{2}(v_e+\\delta v)^2-\\frac{GM}{r_p}$ and substitute $\\frac{GM}{r_p}=\\frac{1}{2}v_e^2$ to obtain $\\epsilon=v_e\\delta v+\\frac{1}{2}(\\delta v)^2$.\n\n**Result:** The post-burn specific mechanical energy is\n\n$$\n\\epsilon = \\frac{1}{2}(v_e+\\delta v)^2 - \\frac{GM}{r_p}.\n$$\n\nUsing the parabolic periapsis condition\n\n$$\n\\frac{GM}{r_p}=\\frac{1}{2}v_e^2,\n$$\n\nwe obtain\n\n$$\n\\epsilon = \\frac{1}{2}(v_e+\\delta v)^2 - \\frac{1}{2}v_e^2.\n$$\n\nExpanding,\n\n$$\n\\epsilon = \\frac{1}{2}\\left(v_e^2+2v_e\\delta v+(\\delta v)^2\\right)-\\frac{1}{2}v_e^2,\n$$\n\nso\n\n$$\n\\boxed{\\epsilon = v_e\\delta v + \\frac{1}{2}(\\delta v)^2}.\n$$\n\n",
+  "information_needed": "Use the post-burn specific orbital energy from Step 3, namely $\\epsilon = v_e\\delta v + \\frac{1}{2}(\\delta v)^2$. Also use the fact that far from the planet the gravitational potential tends to zero, so the conserved specific mechanical energy equals the asymptotic kinetic energy per unit mass, $\\epsilon = \\frac{1}{2}v_\\infty^2$.",
+  "step_committed": false,
+  "disputes_reflect": false,
+  "dispute_reasoning": "",
+  "plan_review_status": "accepted",
+  "user_plan_feedback": "",
+  "resume_auto_continue": false,
+  "user_decision": "",
+  "analysis_text": "",
+  "session_id": "tpbench_row_4_47707910",
+  "session_log_dir": "logs/2026-07-10_16-46-46_TPBench_4",
+  "short_memory": {
+    "type": "short_memory",
+    "max_turns": 6,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Topic:\nBoosted Parabolic Trajectory\n\nProblem:\nConsider a situation where a space-probe very briefly fires its rockets while passing a planet of mass \\(M\\) at periapsis, its nearest point to the planet. Suppose that the probe is on a parabolic trajectory and at periapsis, when travelling at velocity $v_e$, it results in a boost of $\\delta v$. What will be its speed once it escapes the planet's gravitational field only in terms of $v_e$ and $\\delta v$?\n\nDomain:\nClassical Mechanics"
+      }
+    ]
+  },
+  "disable_tavily_direct": true,
+  "forbid_search_tools": true,
+  "force_plan_agent": true,
+  "final_answer": "## Query\nTopic:\nBoosted Parabolic Trajectory\n\nProblem:\nConsider a situation where a space-probe very briefly fires its rockets while passing a planet of mass \\(M\\) at periapsis, its nearest point to the planet. Suppose that the probe is on a parabolic trajectory and at periapsis, when travelling at velocity $v_e$, it results in a boost of $\\delta v$. What will be its speed once it escapes the planet's gravitational field only in terms of $v_e$ and $\\delta v$?\n\nDomain:\nClassical Mechanics\n\n---\n\n## Solution Plan\n  1. Identify the parabolic periapsis condition: before the burn the probe has zero specific orbital energy, so at periapsis $\\frac{1}{2}v_e^2-\\frac{GM}{r_p}=0$, implying $\\frac{GM}{r_p}=\\frac{1}{2}v_e^2$.\n  2. Model the impulsive rocket burn at periapsis as an instantaneous tangential velocity change from $v_e$ to $v_e+\\delta v$, while the radius remains $r_p$.\n  3. Compute the post-burn specific energy using $\\epsilon=\\frac{1}{2}(v_e+\\delta v)^2-\\frac{GM}{r_p}$ and substitute $\\frac{GM}{r_p}=\\frac{1}{2}v_e^2$ to obtain $\\epsilon=v_e\\delta v+\\frac{1}{2}(\\delta v)^2$.\n  4. Relate the positive post-burn energy to the asymptotic escape speed $v_\\infty$ via $\\epsilon=\\frac{1}{2}v_\\infty^2$, yielding $v_\\infty=\\sqrt{2v_e\\delta v+(\\delta v)^2}$.\n\n---\n\n## Execution Step Results\n\n### Step 1: Identify the parabolic periapsis condition: before the burn the probe has zero specific orbital energy, so at periapsis $\\frac{1}{2}v_e^2-\\frac{GM}{r_p}=0$, implying $\\frac{GM}{r_p}=\\frac{1}{2}v_e^2$.\n\n**Reasoning:**\nFor a Keplerian orbit in a Newtonian gravitational potential, the specific orbital energy is $\\epsilon = \\frac{1}{2}v^2 - GM/r$. A parabolic trajectory is the marginally bound case, so $\\epsilon=0$. Evaluating this at periapsis, where the pre-burn speed is $v_e$ and the distance from the planet is $r_p$, gives $\\frac{1}{2}v_e^2 - GM/r_p=0$. Rearranging yields $GM/r_p=\\frac{1}{2}v_e^2$. This establishes the key relation needed to eliminate $GM/r_p$ later when computing the post-burn hyperbolic excess speed.\n\n**Result:**\nBefore the burn, the probe is on a parabolic orbit, so its specific orbital energy is zero:\n\n$$\n\\epsilon = \\frac{1}{2}v_e^2 - \\frac{GM}{r_p}=0.\n$$\n\nTherefore, at periapsis,\n\n$$\n\\frac{GM}{r_p}=\\frac{1}{2}v_e^2.\n$$\n\nEquivalently, the periapsis speed $v_e$ is the local escape speed at radius $r_p$:\n\n$$\nv_e = \\sqrt{\\frac{2GM}{r_p}}.\n$$\n\n**Analysis:**\nFor a Keplerian orbit in a Newtonian gravitational potential, the specific orbital energy is $\\epsilon = \\frac{1}{2}v^2 - GM/r$. A parabolic trajectory is the marginally bound case, so $\\epsilon=0$. Evaluating this at periapsis, where the pre-burn speed is $v_e$ and the distance from the planet is $r_p$, gives $\\frac{1}{2}v_e^2 - GM/r_p=0$. Rearranging yields $GM/r_p=\\frac{1}{2}v_e^2$. This establishes the key relation needed to eliminate $GM/r_p$ later when computing the post-burn hyperbolic excess speed.\n\n### Step 2: Model the impulsive rocket burn at periapsis as an instantaneous tangential velocity change from $v_e$ to $v_e+\\delta v$, while the radius remains $r_p$.\n\n**Reasoning:**\nAn impulsive burn is assumed to occur over a time interval short enough that the spacecraft's position is effectively unchanged, so the gravitational potential term remains evaluated at $r_p$. Since the burn is tangential and aligned with the instantaneous velocity, the velocity vectors add collinearly: the original velocity magnitude $v_e$ becomes $v_e+\\delta v$. This step does not yet require solving the full escape speed at infinity; it only establishes the post-burn initial condition and post-burn specific energy expression.\n\n**Result:**\nBecause the burn is very brief, it may be modeled as an impulse applied at fixed radius $r_p$. Since the boost is tangential and in the direction of motion, the post-burn periapsis speed is simply\n\n$$\nv_p^+ = v_e + \\delta v.\n$$\n\nThe radius during the burn remains\n\n$$\nr^+ = r_p.\n$$\n\nThus, immediately after the burn, the probe is at periapsis radius $r_p$ with velocity magnitude $v_e+\\delta v$. Its post-burn specific mechanical energy is therefore set up as\n\n$$\n\\epsilon^+ = \\frac{1}{2}(v_e+\\delta v)^2 - \\frac{GM}{r_p}.\n$$\n\nUsing the parabolic condition from Step 1, $GM/r_p = \\frac{1}{2}v_e^2$, this can later be written entirely in terms of $v_e$ and $\\delta v$ as\n\n$$\n\\epsilon^+ = \\frac{1}{2}(v_e+\\delta v)^2 - \\frac{1}{2}v_e^2.\n$$\n\n**Analysis:**\nAn impulsive burn is assumed to occur over a time interval short enough that the spacecraft's position is effectively unchanged, so the gravitational potential term remains evaluated at $r_p$. Since the burn is tangential and aligned with the instantaneous velocity, the velocity vectors add collinearly: the original velocity magnitude $v_e$ becomes $v_e+\\delta v$. This step does not yet require solving the full escape speed at infinity; it only establishes the post-burn initial condition and post-burn specific energy expression.\n\n### Step 3: Compute the post-burn specific energy using $\\epsilon=\\frac{1}{2}(v_e+\\delta v)^2-\\frac{GM}{r_p}$ and substitute $\\frac{GM}{r_p}=\\frac{1}{2}v_e^2$ to obtain $\\epsilon=v_e\\delta v+\\frac{1}{2}(\\delta v)^2$.\n\n**Reasoning:**\nImmediately after the impulsive burn, the probe is still at the same periapsis radius $r_p$, but its speed has increased from $v_e$ to $v_e+\\delta v$. Therefore its specific mechanical energy is kinetic energy per unit mass minus gravitational potential energy per unit mass: $\\epsilon = \\frac{1}{2}(v_e+\\delta v)^2 - GM/r_p$. Since the original orbit was parabolic, its pre-burn specific energy was zero, giving $\\frac{1}{2}v_e^2 - GM/r_p=0$, or $GM/r_p=\\frac{1}{2}v_e^2$. Substituting this into the post-burn energy and simplifying yields $\\epsilon=v_e\\delta v+\\frac{1}{2}(\\delta v)^2$.\n\n**Result:**\nThe post-burn specific mechanical energy is\n\n$$\n\\epsilon = \\frac{1}{2}(v_e+\\delta v)^2 - \\frac{GM}{r_p}.\n$$\n\nUsing the parabolic periapsis condition\n\n$$\n\\frac{GM}{r_p}=\\frac{1}{2}v_e^2,\n$$\n\nwe obtain\n\n$$\n\\epsilon = \\frac{1}{2}(v_e+\\delta v)^2 - \\frac{1}{2}v_e^2.\n$$\n\nExpanding,\n\n$$\n\\epsilon = \\frac{1}{2}\\left(v_e^2+2v_e\\delta v+(\\delta v)^2\\right)-\\frac{1}{2}v_e^2,\n$$\n\nso\n\n$$\n\\boxed{\\epsilon = v_e\\delta v + \\frac{1}{2}(\\delta v)^2}.\n$$\n\n**Analysis:**\nImmediately after the impulsive burn, the probe is still at the same periapsis radius $r_p$, but its speed has increased from $v_e$ to $v_e+\\delta v$. Therefore its specific mechanical energy is kinetic energy per unit mass minus gravitational potential energy per unit mass: $\\epsilon = \\frac{1}{2}(v_e+\\delta v)^2 - GM/r_p$. Since the original orbit was parabolic, its pre-burn specific energy was zero, giving $\\frac{1}{2}v_e^2 - GM/r_p=0$, or $GM/r_p=\\frac{1}{2}v_e^2$. Substituting this into the post-burn energy and simplifying yields $\\epsilon=v_e\\delta v+\\frac{1}{2}(\\delta v)^2$.\n\n### Step 4: Relate the positive post-burn energy to the asymptotic escape speed $v_\\infty$ via $\\epsilon=\\frac{1}{2}v_\\infty^2$, yielding $v_\\infty=\\sqrt{2v_e\\delta v+(\\delta v)^2}$.\n\n**Reasoning:**\nThe burn produces a positive specific orbital energy, so the trajectory after the burn is hyperbolic. Specific mechanical energy is conserved after the impulse. As $r\\to\\infty$, the gravitational potential term $-GM/r$ tends to zero, leaving only kinetic energy per unit mass. Therefore $\\epsilon=\\frac{1}{2}v_\\infty^2$. Substituting the previously derived post-burn energy $\\epsilon=v_e\\delta v+\\frac{1}{2}(\\delta v)^2$ directly yields $v_\\infty=\\sqrt{2v_e\\delta v+(\\delta v)^2}$.\n\n**Result:**\nAt infinity, the gravitational potential energy per unit mass vanishes, so the conserved positive post-burn specific energy is purely kinetic:\n\n$$\n\\epsilon = \\frac{1}{2}v_\\infty^2.\n$$\n\nUsing the post-burn energy found previously,\n\n$$\n\\epsilon = v_e\\delta v + \\frac{1}{2}(\\delta v)^2,\n$$\n\nwe therefore have\n\n$$\n\\frac{1}{2}v_\\infty^2 = v_e\\delta v + \\frac{1}{2}(\\delta v)^2.\n$$\n\nMultiplying by 2 gives\n\n$$\nv_\\infty^2 = 2v_e\\delta v + (\\delta v)^2,\n$$\n\nand hence the asymptotic escape speed is\n\n$$\n\\boxed{v_\\infty = \\sqrt{2v_e\\delta v + (\\delta v)^2}}.\n$$\n\n**Analysis:**\nThe burn produces a positive specific orbital energy, so the trajectory after the burn is hyperbolic. Specific mechanical energy is conserved after the impulse. As $r\\to\\infty$, the gravitational potential term $-GM/r$ tends to zero, leaving only kinetic energy per unit mass. Therefore $\\epsilon=\\frac{1}{2}v_\\infty^2$. Substituting the previously derived post-burn energy $\\epsilon=v_e\\delta v+\\frac{1}{2}(\\delta v)^2$ directly yields $v_\\infty=\\sqrt{2v_e\\delta v+(\\delta v)^2}$.\n\n---\n\n## Final Result\n(no final result)"
+}

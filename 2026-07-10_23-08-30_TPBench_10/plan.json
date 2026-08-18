@@ -1,0 +1,49 @@
+{
+  "steps": [
+    {
+      "description": "Identify the missing transformations by writing the full variation of the Lagrangian $$\\mathcal{L}=i\\bar{\\xi}\\bar{\\sigma}^{\\mu}\\partial_{\\mu}\\xi+|\\partial\\phi|^{2}-|F|^{2}$$ under the given rules for $\\delta_{\\eta}\\xi_{\\alpha}$, $\\delta_{\\eta}\\bar{\\xi}_{\\dot{\\beta}}$, $\\delta_{\\eta}F$, and $\\delta_{\\eta}\\bar{F}$, leaving $\\delta_{\\eta}\\phi$ and $(\\delta_{\\eta}\\phi)^{\\dagger}$ undetermined.",
+      "needs_computation": false,
+      "reasoning": "This is a standard variational setup; all terms are linear in the infinitesimal parameter $\\eta$, so the algebra can be organized by hand."
+    },
+    {
+      "description": "Use cancellation of the $F$-dependent terms between $\\delta(i\\bar{\\xi}\\bar{\\sigma}^{\\mu}\\partial_{\\mu}\\xi)$ and $\\delta(-|F|^{2})$ to infer the structure of $\\delta_{\\eta}\\phi$, matching coefficients of $F\\partial_{\\mu}\\bar{\\xi}$ and $\\bar{F}\\partial_{\\mu}\\xi$ after integrating by parts.",
+      "needs_computation": false,
+      "reasoning": "The required coefficient and spinor contraction follow directly from matching the auxiliary-field variations; no symbolic engine is needed."
+    },
+    {
+      "description": "Check the derivative terms proportional to $\\partial_{\\mu}\\phi$ and $\\partial_{\\mu}\\bar{\\phi}$, using $\\eta$ spacetime-independent and the identities involving $\\sigma^{\\mu}_{\\alpha\\dot{\\alpha}}$ and $\\bar{\\sigma}^{\\mu\\dot{\\alpha}\\alpha}$, to verify that the remaining variation is a total derivative.",
+      "needs_computation": false,
+      "reasoning": "This is a short supersymmetry invariance check relying on standard two-component spinor identities and integration by parts."
+    },
+    {
+      "description": "State the final transformation laws in consistent two-component notation: $$\\delta_{\\eta}\\phi=\\sqrt{2}\\,\\eta^{\\alpha}\\xi_{\\alpha}=\\sqrt{2}\\,\\eta\\xi,$$ and $$\\left(\\delta_{\\eta}\\phi\\right)^{\\dagger}=\\delta_{\\eta}\\bar{\\phi}=\\sqrt{2}\\,\\bar{\\eta}_{\\dot{\\alpha}}\\bar{\\xi}^{\\dot{\\alpha}}=\\sqrt{2}\\,\\bar{\\eta}\\bar{\\xi},$$ up to the sign convention implied by Grassmann ordering.",
+      "needs_computation": false,
+      "reasoning": "The result is the standard chiral multiplet supersymmetry transformation, fixed uniquely by invariance of the action."
+    }
+  ],
+  "tools_needed": [],
+  "expected_output": "A concise derivation showing cancellation of variations and the final rules for $\\delta_{\\eta}\\phi$ and $\\left(\\delta_{\\eta}\\phi\\right)^{\\dagger}$.",
+  "references": [
+    "Four-dimensional $\\mathcal{N}=1$ supersymmetry",
+    "Chiral multiplet transformation laws",
+    "Two-component Weyl spinor notation",
+    "Auxiliary field $F$ and off-shell SUSY invariance",
+    "Integration by parts and total derivatives in action invariance"
+  ],
+  "symmetry_constraints": [
+    "$\\eta$ is spacetime-independent",
+    "The action must be invariant up to a total derivative",
+    "Lorentz covariance fixes spinor index contractions",
+    "Grassmann parity and ordering signs must be respected"
+  ],
+  "approximation_limits": [
+    "Infinitesimal transformation only",
+    "Classical off-shell invariance with auxiliary field $F$ retained",
+    "No equations of motion should be used"
+  ],
+  "else_constraints": [
+    "Use the same conventions for $\\sigma^{\\mu}_{\\alpha\\dot{\\alpha}}$ and $\\bar{\\sigma}^{\\mu\\dot{\\alpha}\\alpha}$ as in the problem statement",
+    "Preserve Hermitian conjugation relation between $\\delta_{\\eta}\\phi$ and $\\left(\\delta_{\\eta}\\phi\\right)^{\\dagger}$",
+    "Track possible sign changes from anticommuting spinors"
+  ]
+}

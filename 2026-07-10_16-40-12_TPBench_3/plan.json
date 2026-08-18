@@ -1,0 +1,44 @@
+{
+  "steps": [
+    {
+      "description": "Identify that a $4+1$ dimensional spacetime has $d=4$ spatial dimensions, so the blackbody energy density $u$ is energy per $4$-dimensional spatial volume.",
+      "needs_computation": false,
+      "reasoning": "This is a conceptual dimensional setup; no symbolic or numerical computation is needed."
+    },
+    {
+      "description": "Write the scaling form of the photon/gauge-boson thermal energy density in $d$ spatial dimensions: $$u \\sim \\int \\frac{d^d k}{(2\\pi)^d}\\, \\frac{\\hbar \\omega}{e^{\\beta \\hbar \\omega}-1}, \\qquad \\omega = c|\\mathbf{k}|.$$",
+      "needs_computation": false,
+      "reasoning": "The integral form follows directly from Bose-Einstein statistics and the massless dispersion relation."
+    },
+    {
+      "description": "Use spherical momentum coordinates in $d$ dimensions and rescale $x=\\beta \\hbar c k$ to extract the temperature dependence: $$u \\sim \\int_0^\\infty dk\\, k^{d-1}\\frac{\\hbar c k}{e^{\\beta \\hbar c k}-1} \\propto T^{d+1}.$$",
+      "needs_computation": false,
+      "reasoning": "Only the scaling with $T$ is required; the remaining dimensionless integral is a constant and does not need evaluation."
+    },
+    {
+      "description": "Substitute $d=4$ to obtain $$u \\propto T^{5},$$ so the exponent in $u\\propto T^n$ is $n=5$.",
+      "needs_computation": false,
+      "reasoning": "This is a direct substitution into the general scaling law $n=d+1$."
+    }
+  ],
+  "tools_needed": [],
+  "expected_output": "A short derivation showing that in $4+1$ dimensional spacetime, the blackbody energy density scales as $u\\propto T^5$, hence $n=5$.",
+  "references": [
+    "Bose-Einstein distribution",
+    "Density of states in $d$ spatial dimensions",
+    "Massless dispersion relation $\\omega=c|\\mathbf{k}|$",
+    "Generalized Stefan-Boltzmann law in $d$ spatial dimensions"
+  ],
+  "symmetry_constraints": [
+    "Spatial rotational invariance in $d=4$ dimensions permits replacing $d^d k$ by a radial measure proportional to $k^{d-1}dk$.",
+    "Translational invariance allows momentum-space mode counting."
+  ],
+  "approximation_limits": [
+    "Photons or blackbody radiation are treated as massless bosonic modes.",
+    "Thermodynamic equilibrium at temperature $T$ is assumed.",
+    "Only the scaling exponent is needed; numerical prefactors and polarization degeneracies are irrelevant."
+  ],
+  "else_constraints": [
+    "Use $d=4$ spatial dimensions, not total spacetime dimension $5$, when applying $u\\propto T^{d+1}$."
+  ]
+}

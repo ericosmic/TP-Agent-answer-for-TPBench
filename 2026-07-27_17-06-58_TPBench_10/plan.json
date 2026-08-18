@@ -1,0 +1,59 @@
+{
+  "steps": [
+    {
+      "description": "Introduce the most general Lorentz-covariant linear ansatz for the missing scalar variation, $\u0000\\delta_{\\eta}\\phi=a\\,\\eta^{\\alpha}\\xi_{\\alpha}$, and its Hermitian conjugate $(\\delta_{\\eta}\\phi)^{\\dagger}=a^{*}\\,\\bar{\\eta}_{\\dot{\\alpha}}\\bar{\\xi}^{\\dot{\\alpha}}$, with an undetermined constant $a$; this uses only that $\u0000\\phi$ is complex scalar, $\u0000\\eta$ and $\u0000\\xi$ are Weyl spinors, and $\u0000\\eta$ is spacetime independent.",
+      "needs_computation": false,
+      "reasoning": "Lorentz covariance and Grassmann parity fix the spinor contraction up to a constant; no symbolic computation is needed."
+    },
+    {
+      "description": "Vary the scalar kinetic term $|\\partial\\phi|^{2}=\\partial_{\\mu}\\bar{\\phi}\\,\\partial^{\\mu}\\phi$ using the ansatz from Step 1, integrate by parts in the action, and isolate the terms proportional to $\\eta\\,\\partial\\xi\\,\\partial\\bar{\\phi}$ and $\\bar{\\eta}\\,\\partial\\bar{\\xi}\\,\\partial\\phi$ that must cancel against corresponding pieces from the fermion kinetic variation.",
+      "needs_computation": false,
+      "reasoning": "This is a short variational calculation with standard integration by parts and constant $\u0000\\eta$; it is manageable by hand."
+    },
+    {
+      "description": "Vary the fermion kinetic term $i\\bar{\\xi}\\bar{\\sigma}^{\\mu}\\partial_{\\mu}\\xi$ using the given $\u0000\\delta_{\\eta}\\xi_{\\alpha}$ and $\u0000\\delta_{\\eta}\\bar{\\xi}_{\\dot{\\beta}}$, then use the two-component identity $\\bar{\\sigma}^{\\mu\\dot{\\alpha}\\alpha}\\sigma^{\\nu}_{\\alpha\\dot{\\beta}}+\\bar{\\sigma}^{\\nu\\dot{\\alpha}\\alpha}\\sigma^{\\mu}_{\\alpha\\dot{\\beta}}=2\\eta^{\\mu\\nu}\\delta^{\\dot{\\alpha}}{}_{\\dot{\\beta}}$ and discard total derivatives to express its derivative-of-$\\phi$ contribution in the same structures isolated in Step 2.",
+      "needs_computation": false,
+      "reasoning": "The required sigma-matrix algebra is standard and compact; Mathematica is unnecessary unless one wants to check index signs."
+    },
+    {
+      "description": "Equate the coefficients of the independent derivative structures obtained in Steps 2 and 3 to determine the constant $a$, ensuring that Grassmann signs from moving $\u0000\\eta$ through $\u0000\\xi$ and $\u0000\\bar{\\xi}$ are treated consistently.",
+      "needs_computation": false,
+      "reasoning": "The coefficient matching is algebraic and one-dimensional, so it is simpler to do by hand."
+    },
+    {
+      "description": "Vary the auxiliary-field term $-|F|^{2}=-\\bar{F}F$ using the given $\u0000\\delta_{\\eta}F$ and $\u0000\\delta_{\\eta}\\bar{F}$, and combine it with the $F$-dependent part of the fermion kinetic variation from Step 3 to verify that these terms cancel for the same value of $a$ found in Step 4.",
+      "needs_computation": false,
+      "reasoning": "This check involves only one integration by parts and direct substitution of the supplied transformations."
+    },
+    {
+      "description": "State the resulting $\u0000\\delta_{\\eta}\\phi$ and $(\\delta_{\\eta}\\phi)^{\\dagger}$, and note that the full variation of the action is a spacetime total derivative under the assumptions used above.",
+      "needs_computation": false,
+      "reasoning": "This final step reports the transformation rule established by the preceding cancellations; no further computation is required."
+    }
+  ],
+  "tools_needed": [],
+  "expected_output": "A concise derivation ending with the missing supersymmetry transformations $\\delta_{\\eta}\\phi$ and $(\\delta_{\\eta}\\phi)^{\\dagger}$ and a statement of action invariance up to a total derivative.",
+  "references": [
+    "Four-dimensional $\\mathcal{N}=1$ chiral multiplet supersymmetry transformations",
+    "Two-component Weyl spinor conventions",
+    "Sigma-matrix identity $\\bar{\\sigma}^{\\mu}\\sigma^{\\nu}+\\bar{\\sigma}^{\\nu}\\sigma^{\\mu}=2\\eta^{\\mu\\nu}$",
+    "Grassmann parity and Hermitian conjugation of spinor bilinears",
+    "Invariance of an action up to total derivatives"
+  ],
+  "symmetry_constraints": [
+    "Lorentz covariance fixes $\\delta_{\\eta}\\phi$ to be proportional to the scalar spinor contraction $\\eta\\xi$.",
+    "$\\eta$ is a spacetime-independent fermionic transformation parameter.",
+    "The action must be invariant up to a total derivative, not necessarily the Lagrangian density pointwise.",
+    "Hermitian conjugation relates $\\delta_{\\eta}\\phi$ and $(\\delta_{\\eta}\\phi)^{\\dagger}$ consistently with the given $\u0000\\delta_{\\eta}\\bar{\\xi}$ and $\u0000\\delta_{\\eta}\\bar{F}$."
+  ],
+  "approximation_limits": [
+    "Work only to first order in the infinitesimal parameter $\\eta$.",
+    "Assume fields vanish sufficiently fast at the boundary so total derivatives do not affect the action.",
+    "Use the free massless chiral multiplet Lagrangian with no superpotential or gauge couplings."
+  ],
+  "else_constraints": [
+    "Track signs from anticommuting Weyl spinors carefully.",
+    "Preserve the user's two-component spinor notation, including $\u0000\\xi_{\\alpha}$, $\u0000\\bar{\\xi}_{\\dot{\\beta}}$, $\u0000\\sigma^{\\mu}_{\\alpha\\dot{\\alpha}}$, and $\u0000\\bar{\\sigma}^{\\mu\\dot{\\alpha}\\alpha}$.",
+    "Use the same metric and sigma-matrix conventions implicit in the supplied transformations."
+  ]
+}

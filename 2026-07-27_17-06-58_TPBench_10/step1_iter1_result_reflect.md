@@ -1,0 +1,4 @@
+# error_desc:
+The ansatz itself is symbolically and physically consistent: it keeps $a$ undetermined, uses the Lorentz scalar contraction $\eta^\alpha\xi_\alpha$, and gives the required Hermitian conjugate proportional to $a^*\bar\eta_{\dot\alpha}\bar\xi^{\dot\alpha}$. However, the result does not explicitly state that the ansatz follows only from Lorentz covariance, linearity, and the spacetime independence of $\eta$, which is a required condition in the step description.
+ # fix_instructions:
+Add an explicit sentence such as: "This is the most general form at this stage because $\phi$ is a complex Lorentz scalar, $\eta$ and $\xi$ are Weyl spinors, the variation is assumed linear in the fields and in the constant SUSY parameter, and $\eta$ is spacetime independent; no invariance condition has yet been used to fix $a$."

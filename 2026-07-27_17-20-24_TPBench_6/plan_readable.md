@@ -1,0 +1,71 @@
+# Plan
+
+**步骤数：5**
+
+---
+
+### Step 1
+
+**Description**: Integrate Eq. $\frac{d}{dt}\ln a=\Theta(t_{e}-t)H_{I}+\Theta(t-t_{e})\frac{H_{I}}{1+\frac{3}{2}H_{I}(t-t_{e})}$ with $a|_{t=t_{e}}=a_{e}$, then convert to conformal time using $t=t_{e}+\int_{\eta_{e}}^{\eta}a(y)dy$; choose the convenient origin/branch so that the post-transition scale factor $a(\eta)$ is explicitly available for complex $\eta$ and has the analytic structure needed by $\omega_k(\eta)=\sqrt{k^{2}+m^{2}a^{2}(\eta)}$.
+
+- **Needs computation**: No
+- **Reasoning**: This is a direct integration of a first-order differential equation and a standard change of variables; the algebra is elementary and should be done by hand to keep track of branches.
+
+---
+
+### Step 2
+
+**Description**: Using the analytic $a(\eta)$ from Step 1, determine the singularities of $\frac{\omega_{k}'(\eta)}{2\omega_{k}(\eta)}$ relevant to Eq. $|\beta(k)|\approx\left|\int_{-\infty}^{\infty}d\eta\frac{\omega_{k}'(\eta)}{2\omega_{k}(\eta)}e^{-2i\int_{\eta_{e}}^{\eta}d\eta'\omega_{k}(\eta')}\right|$; impose $\omega_k(\tilde{\eta})=0$ and select the dominant pole/turning point $\tilde{\eta}$ with $\Re\tilde{\eta}>0$ and minimal positive imaginary contribution in the large-$k/(a_eH_I)$ limit.
+
+- **Needs computation**: No
+- **Reasoning**: The pole condition reduces to an elementary complex algebraic equation once $a(\eta)$ is known; branch and dominance choices are analytic rather than computationally intensive.
+
+---
+
+### Step 3
+
+**Description**: Expand $\omega_k(\eta)$ locally around the selected $\tilde{\eta}$ and replace $\frac{\omega_k'}{2\omega_k}$ by its leading one-pole form; deform the real-$\eta$ contour to the steepest-descent contour through $\tilde{\eta}$, retaining only the residue/phase contribution from this pole and discarding subdominant poles according to Step 2.
+
+- **Needs computation**: No
+- **Reasoning**: The one-pole approximation is a standard asymptotic contour-deformation argument; no numerical or heavy symbolic computation is required.
+
+---
+
+### Step 4
+
+**Description**: Evaluate the WKB phase integral $S(k)=\int_{\eta_e}^{\tilde{\eta}}d\eta\,\omega_k(\eta)$ using the large-$k/(a_eH_I)$ expansion with $0<m\lesssim H_I$, keeping the leading non-analytic/exponential contribution that controls $|\beta(k)|$ and retaining only prefactors that survive the requested approximation accuracy.
+
+- **Needs computation**: No
+- **Reasoning**: The integral can be reduced by a scaling variable near the complex pole/turning point and evaluated asymptotically by hand; Mathematica is unnecessary unless one wants to verify intermediate algebra.
+
+---
+
+### Step 5
+
+**Description**: Assemble the asymptotic one-pole result for $|\beta(k)|$ from the pole factor of Step 3 and the imaginary part of $S(k)$ from Step 4, and express the answer explicitly in terms of $k$, $a_e$, $H_I$, and $m$, together with the validity conditions $k/(a_eH_I)\to\infty$ and $0<m\lesssim H_I$.
+
+- **Needs computation**: No
+- **Reasoning**: This final step is algebraic substitution of prior outputs and interpretation of the asymptotic regime, not a new symbolic computation.
+
+---
+
+## Tools
+- No external tools required
+- Optional Mathematica check for complex branch algebra and asymptotic integral verification
+
+## Symmetries
+- Spatial homogeneity and isotropy imply conservation of comoving momentum magnitude $k$
+- Conformal coupling removes explicit curvature terms from the rescaled scalar mode equation
+- The result depends only on $|\vec{k}|=k$, not on the direction of $\vec{k}$
+
+## Approximations
+- $k/(a_eH_I)\rightarrow\infty$
+- $0<m\lesssim H_I$
+- One-pole approximation: only the dominant complex pole $\tilde{\eta}$ with $\Re\tilde{\eta}>0$ is retained
+- Leading steepest-descent/WKB asymptotics; subleading poles and higher adiabatic corrections are neglected
+
+## Other Constraints
+- Maintain consistent complex branch choices for $a(\eta)$ and $\omega_k(\eta)$
+- Use the boundary condition $a|_{t=t_e}=a_e$ when fixing integration constants
+- The steplike $\Theta$ transition can introduce nonanalytic matching effects, but the requested result should isolate the dominant pole contribution
+- The modulus $|\beta(k)|$ is insensitive to an overall real phase but sensitive to the imaginary part of the complex WKB action

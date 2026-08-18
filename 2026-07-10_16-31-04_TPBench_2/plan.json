@@ -1,0 +1,60 @@
+{
+  "steps": [
+    {
+      "description": "Define the sampled halo overdensity by normalizing the clipped number density $n(\\mathbf{x})=\\bar{n}\\max(0,1+b\\delta_m(\\mathbf{x}))$ with its ensemble mean: $\\delta_h(\\mathbf{x})=n(\\mathbf{x})/\\langle n\\rangle-1$. Treat the pixel value as $\\delta_m\\equiv\\delta\\sim\\mathcal{N}(0,\\sigma^2)$, where $\\sigma^2=\\langle\\delta_m^2\\rangle$ is the pixel variance.",
+      "needs_computation": false,
+      "reasoning": "This fixes the physical normalization and stochastic variable directly from the problem statement; no symbolic or numerical computation is needed."
+    },
+    {
+      "description": "Express the positivity domain uniformly for both signs of $b$: if $b>0$, keep $\u0000delta>-1/b$; if $b<0$, keep $\\delta<1/|b|$; for $b=0$, $n(\\mathbf{x})=\\bar n$ and the sampled bias is zero. Introduce $\\alpha=1/(|b|\\sigma)>0$ for $b\\neq0$ so all retained-domain Gaussian integrals can be written with the same upper-tail or lower-tail probability $\u0000Phi(\\alpha)$ after the change of variable $z=\\operatorname{sgn}(b)\\delta/\\sigma$.",
+      "needs_computation": false,
+      "reasoning": "The main subtlety is the sign-dependent clipping inequality; the change of variables is elementary and avoids an incorrect analytic continuation from $b>0$ to $b<0$."
+    },
+    {
+      "description": "Evaluate the mean sampled density on the retained domain using standard Gaussian moments: $\\langle n\\rangle=\\bar n\\left[\\Phi(\\alpha)+|b|\\sigma\\phi(\\alpha)\\right]$ for $b\\neq0$, where $\\phi$ and $\\Phi$ are the standard normal PDF and CDF.",
+      "needs_computation": false,
+      "reasoning": "Only the zeroth and first moments of a one-sided truncated Gaussian are required, which have closed forms."
+    },
+    {
+      "description": "Define the effective large-scale bias of the normalized sampled field by the cross-correlation response $b_{\\rm eff}=\\langle\\delta_h\\delta_m\\rangle/\\langle\\delta_m^2\\rangle=\\langle n\\delta_m\\rangle/(\\sigma^2\\langle n\\rangle)$, using the result of the previous step for the normalization.",
+      "needs_computation": false,
+      "reasoning": "This is the standard linear-bias estimator for a deterministic local tracer normalized by its actual mean; it follows algebraically from $\\langle\\delta_m\\rangle=0$."
+    },
+    {
+      "description": "Evaluate the retained-domain moment $\\langle n\\delta_m\\rangle$ with the same sign-aware variable choice, obtaining $\\langle n\\delta_m\\rangle=\\bar n\\,b\\sigma^2\\Phi(\\alpha)$, and combine it with the preceding expression for $\\langle n\\rangle$ to give the final equation $$b_{\\rm eff}(b,\\sigma)=\\frac{b\\Phi\\!\\left(\\frac{1}{|b|\\sigma}\\right)}{\\Phi\\!\\left(\\frac{1}{|b|\\sigma}\\right)+|b|\\sigma\\phi\\!\\left(\\frac{1}{|b|\\sigma}\\right)}$$ for $b\\neq0$, with $b_{\\rm eff}=0$ for $b=0$.",
+      "needs_computation": false,
+      "reasoning": "The second truncated moment cancels the boundary term from the first moment, leaving a compact analytic expression; Mathematica is unnecessary."
+    },
+    {
+      "description": "Check consistency limits without altering the final formula: when $|b|\\sigma\\ll1$, clipping is exponentially rare and $b_{\\rm eff}\\to b$; for finite $|b|\\sigma$, the denominator exceeds $\u0000Phi(1/(|b|\\sigma))$, so clipping suppresses the magnitude of the sampled bias while preserving the sign of $b$.",
+      "needs_computation": false,
+      "reasoning": "These are direct asymptotic and sign checks of the derived expression."
+    }
+  ],
+  "tools_needed": [],
+  "expected_output": "A compact derivation and explicit final analytic equation for the sampled-field bias $b_{\\rm eff}(b,\\sigma)$, valid for positive, negative, and zero bare bias $b$, expressed using the standard normal PDF $\\phi$ and CDF $\\Phi$.",
+  "references": [
+    "Gaussian random fields in cosmology",
+    "Deterministic local halo bias",
+    "Halo overdensity normalization by $\\langle n\\rangle$",
+    "One-sided truncated Gaussian moments",
+    "Large-scale bias from $\\langle\\delta_h\\delta_m\\rangle/\\langle\\delta_m^2\\rangle$"
+  ],
+  "symmetry_constraints": [
+    "Statistical homogeneity ensures ensemble averages such as $\\langle n\\rangle$ are independent of $\\mathbf{x}$.",
+    "The Gaussian matter field has zero mean, $\\langle\\delta_m\\rangle=0$.",
+    "The sign of $b_{\\rm eff}$ must follow the sign of the bare bias $b$ because clipping changes the amplitude but not the monotonic response direction."
+  ],
+  "approximation_limits": [
+    "The pixel matter overdensity is modeled as a Gaussian random variable with variance $\\sigma^2$.",
+    "The result assumes the local deterministic prescription $n(\\mathbf{x})=\\bar{n}\\max(0,1+b\\delta_m(\\mathbf{x}))$.",
+    "The formula is pixel-variance dependent; changing smoothing or pixel scale changes $\u0000sigma^2$.",
+    "For $|b|\\sigma\\ll1$, the sampled-field bias should reduce to the bare bias $b$."
+  ],
+  "else_constraints": [
+    "Normalize $\\delta_h$ by the actual mean $\\langle n\\rangle$, not by the bare density $\\bar n$.",
+    "Do not use the $b>0$ lower limit $\\delta>-1/b$ for $b<0$; for $b<0$ the retained domain is $\\delta<1/|b|$.",
+    "Do not analytically continue the $b>0$ formula by setting $1/(b\\sigma)<0$; the correct sign-independent cutoff parameter is $1/(|b|\\sigma)$.",
+    "The final answer must explicitly state the result rather than leaving a placeholder such as '(no final result)'."
+  ]
+}
